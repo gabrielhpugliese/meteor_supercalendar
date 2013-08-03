@@ -1,5 +1,5 @@
 <head>
-    <title>meteor_calendar</title>
+    <title>Meteor Calendar</title>
 </head>
 
 <body>
@@ -10,18 +10,22 @@
 {{#constant}}
 <div id="calendar">
 </div>
+{{/constant}}
+{{> calendar_modal}}
+</template>
+
+<template name="calendar_modal">
+{{#constant}}
 <div id="new-event-modal" class="modal hide fade">
     <div class="modal-header">
         <button class="close" data-dismiss="modal">×</button>
-        <h3>Schedule a Broadcast</h3>
+        <h3>Schedule an Event</h3>
     </div>
     <div class="modal-body">
         <div class="row-fluid">
             <div class="span12">
                 <form class="form-horizontal">
                     <fieldset>
-
-                        <legend>Schedule a Broadcast</legend>
 
                         <div class="control-group">
                             <label class="control-label">Title</label>
@@ -34,7 +38,7 @@
                         <div class="control-group">
                             <label class="control-label">Date</label>
                             <div class="controls">
-                                <input id="date" name="date" type="text" placeholder="DD/MM/YYYY" class="input-xlarge" required="">
+                                <input id="date" name="date" type="text" placeholder="YYYY-MM-DD" class="input-xlarge" required="">
 
                             </div>
                         </div>
@@ -43,11 +47,11 @@
                             <label class="control-label"></label>
                             <div class="controls">
                                 <label class="radio inline">
-                                    <input type="radio" name="has-time" value="Don't know the time" checked="checked">
+                                    <input type="radio" name="time" value="no-time" checked="checked">
                                     Don't know the time
                                 </label>
                                 <label class="radio inline">
-                                    <input type="radio" name="has-time" value="I know the time">
+                                    <input type="radio" name="time" value="has-time">
                                     I know the time
                                 </label>
                             </div>
@@ -56,7 +60,7 @@
                         <div id="time-input" class="control-group" style="display: none;">
                             <label class="control-label">Time</label>
                             <div class="controls">
-                                <input id="time" name="time" type="text" placeholder="7:00" class="input-xlarge">
+                                <input id="time" name="time-value" type="text" placeholder="21:00" class="input-xlarge" value="21:00">
                                 <p class="help-block">Insert time in format HH:mm (00:00 to 24:00)</p>
                             </div>
                         </div>
@@ -72,9 +76,6 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <p><i>Lastest Update on October 2nd, 2012</i></p>
     </div>
 </div>
 {{/constant}}
