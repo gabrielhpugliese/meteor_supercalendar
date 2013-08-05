@@ -24,7 +24,7 @@ Deps.autorun(function () {
 
 Template.calendar.rendered = function () {
     Session.set('calendarTemplateRendered', true);
-}
+};
 
 Template.calendar.events({
     'click td.fc-day' : function (event) {
@@ -44,5 +44,9 @@ Template.calendar_modal.events({
         } else {
             $('#time-input').hide();
         }
+    },
+    'click div.modal-body div.alert button.close' : function (event) {
+        var $parent = $(event.target).parent();
+        $parent.addClass('hide');
     }
-})
+});
