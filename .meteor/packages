@@ -6,6 +6,5 @@
 preserve-inputs
 jquery
 bootstrap
-audit-argument-checks
 less
 underscore
