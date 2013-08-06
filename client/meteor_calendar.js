@@ -27,10 +27,10 @@ Template.calendar.rendered = function () {
 };
 
 Template.calendar.events({
-    'click td.fc-day' : function (event) {
-        var target = event.target.localName === 'td' ? event.target : $(event.target).parent().parent().parent(), 
+    'click div.fc-day-content' : function (event) {
+        var target = event.target, 
             $modal = $('#new-event-modal'),
-            date = $(target).attr('data-date');
+            date = $(target).parents('.fc-day').attr('data-date');
 
         $modal.modal('toggle');
         $modal.find('input[name=date]').val(date);
