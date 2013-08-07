@@ -32,8 +32,8 @@ Template.calendar.rendered = function () {
             $modal.modal('show');
             $modal.find('div.modal-header').find('h3').text(title);
             $modal.find('div.modal-body').html('').append([
-                $('<li>').text(calEvent.start),
-                $('<li>').text(calEvent.description)
+                $('<li>').text('Start: ' + calEvent.start),
+                $('<li>').text('Description: ' + calEvent.description)
             ]);
         });
     });
