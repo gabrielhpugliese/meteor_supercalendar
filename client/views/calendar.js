@@ -1,12 +1,15 @@
-Meteor.subscribe('calendar');
+calendarSubs = Meteor.subscribe('calendar');
 
 Meteor.startup(function () {
     Session.set('calendarTemplateRendered', false);
 });
 
 Deps.autorun(function () {
-    if (Session.equals('calendarTemplateRendered', false))
-        return;
+    if (Session.equals('calendarTemplateRendered', false) || 
+        !calendarSubs.ready() ||
+        typeof Calendar === 'undefined') {
+            return;
+    }
     var entries = Calendar.find().fetch(),
         $calendar = $('#calendar');
 
