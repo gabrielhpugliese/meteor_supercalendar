@@ -10,8 +10,7 @@ Deps.autorun(function () {
     var entries = Calendar.find().fetch(),
         $calendar = $('#calendar');
 
-    $calendar.html('');
-    $calendar.fullCalendar({
+    $calendar.html('').fullCalendar({
         header: {
             left: 'prev,next today',
             center: 'title',
@@ -24,20 +23,34 @@ Deps.autorun(function () {
 
 Template.calendar.rendered = function () {
     Session.set('calendarTemplateRendered', true);
+    $('div.fc-event').livequery(function () {
+        $(this).click(function () {
+            var title = $(this).find('span.fc-event-title').text(),
+                $modal = $('#event-details-modal'),
+                calEvent = Calendar.findOne({title: title});
+
+            $modal.modal('show');
+            $modal.find('div.modal-header').find('h3').text(title);
+            $modal.find('div.modal-body').html('').append([
+                $('<li>').text(calEvent.start),
+                $('<li>').text(calEvent.description)
+            ]);
+        });
+    });
 };
 
 Template.calendar.events({
-    'click div.fc-day-content' : function (event) {
+    'click div.fc-square, click td.fc-day' : function (event) {
         var target = event.target, 
             $modal = $('#new-event-modal'),
-            date = $(target).parents('.fc-day').attr('data-date');
+            date = $(target).parents('.fc-day').attr('data-date') || $(target).attr('data-date');
 
-        $modal.modal('toggle');
+        $modal.modal('show');
         $modal.find('input[name=date]').val(date);
     }
 });
 
-Template.calendar_modal.events({
+Template.new_event_modal.events({
     'click input[type=radio]' : function (event) {
         if (event.target.value === 'has-time') {
             $('#time-input').show();

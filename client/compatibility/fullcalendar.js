@@ -2331,7 +2331,7 @@ function BasicView(element, calendar, viewName) {
 			" class='" + classNames.join(' ') + "'" +
 			" data-date='" + formatDate(date, 'yyyy-MM-dd') + "'" +
 			">" +
-			"<div>";
+			"<div class='fc-square'>";
 
 		if (showNumbers) {
 			html += "<div class='fc-day-number'>" + date.getDate() + "</div>";
