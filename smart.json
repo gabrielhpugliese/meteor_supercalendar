@@ -1,5 +1,6 @@
 {
   "packages": {
-    "supercalendar": {}
+    "supercalendar": {},
+    "fork-me": {}
   }
 }
