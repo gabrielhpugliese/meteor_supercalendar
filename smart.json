@@ -3,7 +3,7 @@
   "description": "Google Calendar-like as smart package",
   "homepage": "http://supercalendar.meteor.com",
   "author": "Gabriel Henrique Pugliese <gabrielhpugliese@gmail.com>",
-  "version": "0.1.2b",
+  "version": "0.1.2c",
   "git": "https://github.com/gabrielhpugliese/meteor_supercalendar",
   "packages": {
     "Mesosphere": {
