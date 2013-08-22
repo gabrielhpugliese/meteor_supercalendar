@@ -7,7 +7,7 @@
   "git": "https://github.com/gabrielhpugliese/meteor_supercalendar",
   "packages": {
     "Mesosphere": {
-      "version": "0.1." 
+      "version": "0.1.1" 
     }
   } 
 }
