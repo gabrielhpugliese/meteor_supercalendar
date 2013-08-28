@@ -9,7 +9,7 @@ Works with Meteor release 0.6.4.1 and beyond only.
 
 http://supercalendar.meteor.com
 
-### Mantained by CodersTV
+## Mantained by CodersTV
 
 This package is used and mantained by [CodersTV](http://coderstv.com)
 
