@@ -5,6 +5,8 @@ Package.describe({
 Package.on_use(function (api, where) {
     // Client
     api.use([
+            'standard-app-packages',
+            'meteor',
             'startup',
             'templating',
             'session',
@@ -43,5 +45,9 @@ Package.on_use(function (api, where) {
     api.add_files([
                   'server/publications.js'
     ], 'server');
+
+    if (typeof api.export !== 'undefined') {
+        api.export('Calendar', ['client', 'server']);
+    }
 
 });

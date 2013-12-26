@@ -3,8 +3,6 @@ Meteor SuperCalendar
 
 Smart package for SuperCalendar. Google Calendar-like as smart package
 
-Works with Meteor release 0.6.4.1 and beyond only.
-
 ## Demo
 
 http://supercalendar.meteor.com
