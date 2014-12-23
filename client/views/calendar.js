@@ -4,8 +4,8 @@ Meteor.startup(function () {
     Session.set('calendarTemplateRendered', false);
 });
 
-Deps.autorun(function () {
-    if (Session.equals('calendarTemplateRendered', false) || 
+Tracker.autorun(function () {
+    if (Session.equals('calendarTemplateRendered', false) ||
         !calendarSubs.ready() ||
         typeof Calendar === 'undefined') {
             return;
@@ -44,7 +44,7 @@ Template.calendar.rendered = function () {
 
 Template.calendar.events({
     'click div.fc-square, click td.fc-day' : function (event) {
-        var target = event.target, 
+        var target = event.target,
             $modal = $('#new-event-modal'),
             date = $(target).parents('.fc-day').attr('data-date') || $(target).attr('data-date');
 
