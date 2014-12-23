@@ -1,12 +1,9 @@
 <template name="calendar">
-{{#constant}}
 <div id="calendar">
 </div>
-{{/constant}}
 </template>
 
 <template name="new_event_modal">
-{{#constant}}
 <div id="new-event-modal" class="modal hide fade">
     <div class="modal-header">
         <button class="close" data-dismiss="modal">×</button>
@@ -63,7 +60,7 @@
 
                         <div class="control-group">
                             <label class="control-label">Description</label>
-                            <div class="controls">                     
+                            <div class="controls">
                                 <textarea rows="5" id="description" name="description" required=""></textarea>
                             </div>
                         </div>
@@ -81,11 +78,9 @@
         </div>
     </div>
 </div>
-{{/constant}}
 </template>
 
 <template name="event_details">
-{{#constant}}
 <div class="modal hide fade" id="event-details-modal">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">x</button>
@@ -96,5 +91,4 @@
         </ul>
     </div>
 </div>
-{{/constant}}
 </template>
