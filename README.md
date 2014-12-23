@@ -15,12 +15,7 @@ This package is used and mantained by [CodersTV](http://coderstv.com)
 
 To install in a new project:
 ```bash
-> mrt add supercalendar
-```
-
-To update an existing project:
-```bash
-> mrt update supercalendar
+> meteor add gabrielhpugliese:supercalendar
 ```
 
 ## Quick Start
