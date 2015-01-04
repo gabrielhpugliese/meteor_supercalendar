@@ -1,7 +1,7 @@
 Package.describe({
   name: "gabrielhpugliese:supercalendar",
   summary: "Google Calendar-like as smart package",
-  version: "0.3.0",
+  version: "0.4.0",
   git: "https://github.com/gabrielhpugliese/meteor_supercalendar"
 });
 
@@ -10,7 +10,7 @@ Package.onUse(function (api, where) {
 
   // Other packages
   api.use('copleykj:mesosphere@0.1.14');
-  api.use('bootstrap@1.0.1');
+  api.use('anti:modals@0.4.0');
   // Client
   api.use([
     'startup',
@@ -31,7 +31,6 @@ Package.onUse(function (api, where) {
   ], 'client');
   api.add_files([
     'client/compatibility/fullcalendar.js',
-    'client/compatibility/jquery.livequery.js',
     'client/compatibility/jquery-ui-1.10.3.custom.js'
   ], 'client', {raw: true});
 

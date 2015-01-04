@@ -4,91 +4,94 @@
 </template>
 
 <template name="new_event_modal">
-<div id="new-event-modal" class="modal hide fade">
-    <div class="modal-header">
-        <button class="close" data-dismiss="modal">×</button>
-        <h3>Schedule an Event</h3>
-    </div>
-    <div class="modal-body">
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="alert hide">
-                    <button type="button" class="close">&times;</button>
-                    <h4></h4>
-                    <ul></ul>
-                </div>
-                <form name="newEvent" class="form-horizontal">
-                    <fieldset>
-
-                        <div class="control-group">
-                            <label class="control-label">Title</label>
-                            <div class="controls">
-                                <input id="title" name="title" type="text" placeholder="Awesome broadcast" class="input-xlarge" required="">
-
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label">Date</label>
-                            <div class="controls">
-                                <input id="date" name="date" type="text" placeholder="YYYY-MM-DD" class="input-xlarge" required="">
-
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label"></label>
-                            <div class="controls">
-                                <label class="radio inline">
-                                    <input type="radio" name="time" value="no-time" checked="checked">
-                                    Don't know the time
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" name="time" value="has-time">
-                                    I know the time
-                                </label>
-                            </div>
-                        </div>
-
-                        <div id="time-input" class="control-group" style="display: none;">
-                            <label class="control-label">Time</label>
-                            <div class="controls">
-                                <input id="time" name="time-value" type="text" placeholder="21:00" class="input-xlarge" value="21:00">
-                                <p class="help-block">Insert time in format HH:mm (00:00 to 24:00)</p>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label">Description</label>
-                            <div class="controls">
-                                <textarea rows="5" id="description" name="description" required=""></textarea>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label"></label>
-                            <div class="controls">
-                                <button type="submit" id="save-event" name="save-event" class="btn btn-success">Save</button>
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
-            </div>
+<div class="anti-modal-box" id="new-event-modal">
+  <div class="anti-modal-header">
+    <div class="anti-modal-title">Schedule an Event</div>
+    <div class="anti-modal-closer">&times;</div>
+  </div>
+  <div class="anti-modal-body">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="alert hide">
+          <h4></h4>
+          <ul></ul>
         </div>
+        <form name="newEvent" class="form-horizontal">
+          <fieldset>
+
+            <div class="control-group">
+              <label class="control-label">Title</label>
+              <div class="controls">
+                <input id="title" name="title" type="text" placeholder="Awesome broadcast" class="input-xlarge" required="">
+
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Date</label>
+              <div class="controls">
+                <input id="date" name="date" type="text" placeholder="YYYY-MM-DD" class="input-xlarge" required="" value="{{date}}">
+
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label"></label>
+              <div class="controls">
+                <label class="radio inline">
+                  <input type="radio" name="time" value="no-time" checked="checked">
+                  Don't know the time
+                </label>
+                <label class="radio inline">
+                  <input type="radio" name="time" value="has-time">
+                  I know the time
+                </label>
+              </div>
+            </div>
+
+            <div id="time-input" class="control-group" style="display: none;">
+              <label class="control-label">Time</label>
+              <div class="controls">
+                <input id="time" name="time-value" type="text" placeholder="21:00" class="input-xlarge" value="21:00">
+                <p class="help-block">Insert time in format HH:mm (00:00 to 24:00)</p>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Description</label>
+              <div class="controls">
+                <textarea rows="5" id="description" name="description" required=""></textarea>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label"></label>
+              <div class="controls">
+                <button type="submit" id="save-event" name="save-event" class="btn btn-success">Save</button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 </template>
 
 <template name="event_details">
-<div class="modal hide fade" id="event-details-modal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">x</button>
-        <h3></h3>
-    </div>
-    <div class="modal-body">
-        <ul>
-        </ul>
-    </div>
+<div class="anti-modal-box" id="event-details-modal">
+  <div class="anti-modal-header">
+    <div class="anti-modal-title">{{title}}</div>
+    <div class="anti-modal-closer">&times;</div>
+  </div>
+  <div class="anti-modal-body">
+    <ul>
+      <li>
+      When: {{start}}
+      </li>
+      <li>Description: {{description}}</li>
+    </ul>
+  </div>
 </div>
 </template>

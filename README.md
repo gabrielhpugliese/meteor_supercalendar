@@ -25,15 +25,13 @@ In your body or any template, you can simply add the calendar view (required), n
 ```html
 <body>
   {{> calendar}}
-  {{> new_event_modal}}
-  {{> event_details}}
 </body>
 ```
 
 ## Configuration
 
 If you want to have your own event view/model, just rewrite
-new_event_modal and event_details views. Use `Calendar` collection to
+`new_event_modal` and `event_details` views. Use `Calendar` collection to
 add events.
 
 I'm using [Mesosphere](https://github.com/copleykj/Mesosphere) for form validation. Take a look how to do it in
@@ -42,6 +40,7 @@ lib/forms.js
 ## Third party projects included
 
 Thanks for those wonderful packages I'm using:
+* [Anti:Modals](https://atmospherejs.com/anti/modals) for modals
 * [Mesosphere](https://github.com/copleykj/Mesosphere) for form
   validation
 * [FullCalendar](http://arshaw.com/fullcalendar/) for Google Calendar-like UI
