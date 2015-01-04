@@ -31,7 +31,6 @@ Package.onUse(function (api, where) {
   ], 'client');
   api.add_files([
     'client/compatibility/fullcalendar.js',
-    'client/compatibility/jquery.livequery.js',
     'client/compatibility/jquery-ui-1.10.3.custom.js'
   ], 'client', {raw: true});
 
