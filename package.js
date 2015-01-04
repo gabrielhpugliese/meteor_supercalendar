@@ -10,7 +10,7 @@ Package.onUse(function (api, where) {
 
   // Other packages
   api.use('copleykj:mesosphere@0.1.14');
-  api.use('bootstrap@1.0.1');
+  api.use('anti:modals@0.4.0');
   // Client
   api.use([
     'startup',
