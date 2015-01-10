@@ -7,10 +7,6 @@ Smart package for SuperCalendar. Google Calendar-like as smart package
 
 http://supercalendar.meteor.com
 
-## Mantained by CodersTV
-
-This package is used and mantained by [CodersTV](http://coderstv.com)
-
 ## Install
 
 To install in a new project:
@@ -28,19 +24,34 @@ In your body or any template, you can simply add the calendar view (required), n
 </body>
 ```
 
-## Configuration
+## Custom behaviour
 
-If you want to have your own event view/model, just rewrite
-`new_event_modal` and `event_details` views. Use `Calendar` collection to
-add events.
+Override pre-defined function events within `CalendarOptions.events` to add your own behaviours. 
 
-I'm using [Mesosphere](https://github.com/copleykj/Mesosphere) for form validation. Take a look how to do it in
-lib/forms.js
+Example (if you want to override a click on a day square):
+```javascript
+Meteor.startup(function () {
+  SuperCalendar.events.onDayClick = function (event, template) {
+    // put your custom code here.
+  };
+});
+```
+
+### Events
+
+Those are events supported by now. Create an issue to request more:
+
+* onDayClick: when users click on a day square.
+* onEventClick: when users click on a registered event.
+
+## Model configuration
+
+Use `Calendar` collection to add events. If you don't want to publish it all, create an issue to request the removal.
 
 ## Third party projects included
 
 Thanks for those wonderful packages I'm using:
-* [Anti:Modals](https://atmospherejs.com/anti/modals) for modals
-* [Mesosphere](https://github.com/copleykj/Mesosphere) for form
+* [Anti:Modals](https://atmospherejs.com/anti/modals) for modals. Take a look how to to it in `client/lib/app.js`
+* [Mesosphere](https://github.com/copleykj/Mesosphere) for form. Take a look how to do it in `lib/forms.js`
   validation
 * [FullCalendar](http://arshaw.com/fullcalendar/) for Google Calendar-like UI

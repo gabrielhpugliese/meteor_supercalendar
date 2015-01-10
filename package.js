@@ -1,7 +1,7 @@
 Package.describe({
   name: "gabrielhpugliese:supercalendar",
   summary: "Google Calendar-like as smart package",
-  version: "0.4.0",
+  version: "0.5.0",
   git: "https://github.com/gabrielhpugliese/meteor_supercalendar"
 });
 
@@ -22,6 +22,7 @@ Package.onUse(function (api, where) {
     'less',
   ], 'client');
   api.add_files([
+    'client/lib/app.js',
     'client/stylesheets/calendar.less',
     'client/stylesheets/fullcalendar.css',
     'client/stylesheets/fullcalendar.print.css',
@@ -50,6 +51,7 @@ Package.onUse(function (api, where) {
 
   if (typeof api.export !== 'undefined') {
     api.export('Calendar', ['client', 'server']);
+    api.export('SuperCalendar', ['client']);
   }
 
 });

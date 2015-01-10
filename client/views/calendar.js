@@ -25,23 +25,11 @@ Template.calendar.rendered = function () {
 };
 
 Template.calendar.events({
-  'click .fc-square, click .fc-day' : function (event) {
-    var target = event.target;
-    var date = $(target).parents('.fc-day').attr('data-date') || $(target).attr('data-date');
-
-    AntiModals.overlay('new_event_modal', {
-      data: {
-        date: date
-      }
-    });
+  'click .fc-square, click .fc-day': function (e, t) {
+    return SuperCalendar.events.onDayClick(e, t);
   },
   'click .fc-event': function (e, t) {
-    var eventId = e.target.id || $(e.target).closest('.fc-event-hori').attr('id');
-    var calEvent = Calendar.findOne(eventId);
-
-    AntiModals.overlay('event_details', {
-      data: calEvent
-    });
+    return SuperCalendar.events.onEventClick(e, t);
   }
 });
 
