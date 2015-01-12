@@ -18,6 +18,29 @@ SuperCalendar = {
         }
       });
     }
+  },
+  rendered: function () {
+    this.autorun(function () {
+      if (! Session.get('superCalendarReady', true) ||
+          typeof Calendar === 'undefined') {
+        return;
+      }
+      var entries = Calendar.find().fetch();
+      var $calendar = $('#calendar');
+
+      $calendar.html('').fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay'
+        },
+        editable: false,
+        events: entries,
+        eventRender: function (event, element) {
+          $(element).attr('id', event._id);
+        }
+      });
+    });
   }
 };
 

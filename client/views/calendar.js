@@ -1,35 +1,13 @@
-calendarSubs = Meteor.subscribe('calendar');
-
 Template.calendar.rendered = function () {
-  this.autorun(function () {
-    if (! calendarSubs.ready() ||
-        typeof Calendar === 'undefined') {
-      return;
-    }
-    var entries = Calendar.find().fetch();
-    var $calendar = $('#calendar');
-
-    $calendar.html('').fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
-      },
-      editable: false,
-      events: entries,
-      eventRender: function (event, element) {
-        $(element).attr('id', event._id);
-      }
-    });
-  });
-};
+  return SuperCalendar.rendered.call(this);
+}
 
 Template.calendar.events({
   'click .fc-square, click .fc-day': function (e, t) {
-    return SuperCalendar.events.onDayClick(e, t);
+    return SuperCalendar.events.onDayClick.apply(this, [e, t]);
   },
   'click .fc-event': function (e, t) {
-    return SuperCalendar.events.onEventClick(e, t);
+    return SuperCalendar.events.onEventClick.apply(this, [e, t]);
   }
 });
 
