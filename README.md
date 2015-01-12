@@ -26,7 +26,7 @@ In your body or any template, you can simply add the calendar view (required), n
 
 ## Custom behaviour
 
-Override pre-defined function events within `CalendarOptions.events` to add your own behaviours. 
+*client:* Override pre-defined function events within `SuperCalendar.events` to add your own behaviours. 
 
 Example (if you want to override a click on a day square):
 ```javascript
