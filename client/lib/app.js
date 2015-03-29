@@ -1,7 +1,7 @@
 SuperCalendar = {
   events: {
     onEventClick: function (e, t, data) {
-      var eventId = e.target.id || $(e.target).closest('.fc-event-hori').attr('id');
+      var eventId = e.target.id || $(e.target).closest('.fc-event').attr('id');
       var calEvent = Calendar.findOne(eventId);
 
       AntiModals.overlay('event_details', {
