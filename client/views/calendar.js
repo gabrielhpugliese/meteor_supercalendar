@@ -26,10 +26,10 @@ Template.calendar.rendered = function () {
 
 Template.calendar.events({
   'click .fc-square, click .fc-day': function (e, t) {
-    return SuperCalendar.events.onDayClick(e, t);
+    return SuperCalendar.events.onDayClick.call(this, e, t);
   },
   'click .fc-event': function (e, t) {
-    return SuperCalendar.events.onEventClick(e, t);
+    return SuperCalendar.events.onEventClick.call(this, e, t);
   }
 });
 
