@@ -67,7 +67,7 @@ SuperCalendar = {
             view: view
           });
         },
-        eventClick: function (date, flag, e, view) {
+        eventClick: function (date, e, view) {
           return SuperCalendar.events.onEventClick.call(this, e, self, {
             date: date,
             view: view
