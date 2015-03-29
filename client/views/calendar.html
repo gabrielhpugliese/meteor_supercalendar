@@ -39,20 +39,20 @@
               <label class="control-label"></label>
               <div class="controls">
                 <label class="radio inline">
-                  <input type="radio" name="time" value="no-time" checked="checked">
+                  <input type="radio" name="time" value="no-time" checked={{timeData.noTimeChecked}}>
                   Don't know the time
                 </label>
                 <label class="radio inline">
-                  <input type="radio" name="time" value="has-time">
+                  <input type="radio" name="time" value="has-time" checked="{{timeData.hasTimeChecked}}">
                   I know the time
                 </label>
               </div>
             </div>
 
-            <div id="time-input" class="control-group" style="display: none;">
+            <div id="time-input" class="control-group" style={{timeData.timeInputStyle}}>
               <label class="control-label">Time</label>
               <div class="controls">
-                <input id="time" name="time-value" type="text" placeholder="21:00" class="input-xlarge" value="21:00">
+                <input id="time" name="time-value" type="text" placeholder="21:00" class="input-xlarge" value="{{hour}}">
                 <p class="help-block">Insert time in format HH:mm (00:00 to 24:00)</p>
               </div>
             </div>

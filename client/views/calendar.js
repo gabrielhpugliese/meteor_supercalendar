@@ -1,7 +1,9 @@
 calendarSubs = Meteor.subscribe('calendar');
 
 Template.calendar.rendered = function () {
-  this.autorun(function () {
+  var self = this;
+
+  self.autorun(function () {
     if (! calendarSubs.ready() ||
         typeof Calendar === 'undefined') {
       return;
@@ -19,19 +21,22 @@ Template.calendar.rendered = function () {
       events: entries,
       eventRender: function (event, element) {
         $(element).attr('id', event._id);
+      },
+      dayClick: function (date, flag, e, view) {
+        return SuperCalendar.events.onDayClick.call(this, e, self, {
+          date: date,
+          view: view
+        });
+      },
+      eventClick: function (date, flag, e, view) {
+        return SuperCalendar.events.onEventClick.call(this, e, self, {
+          date: date,
+          view: view
+        });
       }
     });
   });
 };
-
-Template.calendar.events({
-  'click .fc-square, click .fc-day': function (e, t) {
-    return SuperCalendar.events.onDayClick.call(this, e, t);
-  },
-  'click .fc-event': function (e, t) {
-    return SuperCalendar.events.onEventClick.call(this, e, t);
-  }
-});
 
 Template.new_event_modal.events({
   'click input[type=radio]': function (event, t) {

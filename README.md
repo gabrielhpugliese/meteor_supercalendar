@@ -31,7 +31,7 @@ Override pre-defined function events within `CalendarOptions.events` to add your
 Example (if you want to override a click on a day square):
 ```javascript
 Meteor.startup(function () {
-  SuperCalendar.events.onDayClick = function (event, template) {
+  SuperCalendar.events.onDayClick = function (event, template, data) {
     // put your custom code here.
   };
 });
@@ -43,6 +43,11 @@ Those are events supported by now. Create an issue to request more:
 
 * onDayClick: when users click on a day square.
 * onEventClick: when users click on a registered event.
+
+The `data` has the keys:
+
+* date: Date() that was clicked.
+* view: view that user is in.
 
 ## Model configuration
 
