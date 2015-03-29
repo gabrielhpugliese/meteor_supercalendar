@@ -16,42 +16,61 @@ To install in a new project:
 
 ## Quick Start
 
-In your body or any template, you can simply add the calendar view (required), new event modal view and event details view:
+1. In your body or any template, you can simply add the calendar view:
 
-```html
-<body>
-  {{> calendar}}
-</body>
-```
+        <body>
+          {{> calendar}}
+        </body>
 
-## Custom behaviour
+2. Publish the `Calendar` data on server:
 
-Override pre-defined function events within `CalendarOptions.events` to add your own behaviours. 
+        Meteor.publish('calendar', function () {
+          return Calendar.find();
+        });
+
+3. Subscribe on client and set the `superCalendarReady` session var to `true`:
+
+        Meteor.subscribe('calendar', function () {
+          Session.set('superCalendarReady', true);
+        });
+
+## Customization
+
+### Custom events
+
+*client:* Override pre-defined function events within `SuperCalendar.events` to add your own behaviours.
 
 Example (if you want to override a click on a day square):
 ```javascript
-Meteor.startup(function () {
-  SuperCalendar.events.onDayClick = function (event, template, data) {
-    // put your custom code here.
-  };
-});
+SuperCalendar.events.onDayClick = function (event, template, data) {
+// put your custom code here.
+};
 ```
-
-### Events
 
 Those are events supported by now. Create an issue to request more:
 
 * onDayClick: when users click on a day square.
 * onEventClick: when users click on a registered event.
 
-The `data` has the keys:
+The `data` param has the keys:
 
 * date: Date() that was clicked.
 * view: view that user is in.
 
+### Custom rendered event
+
+*client:* Override `SuperCalendar.rendered` to send your own rendered callback to Meteor. Note that you are going to implement the fullCalendar initalization. This does not override other events.
+
+Example:
+```javascript
+SuperCalendar.rendered = function () {
+// Do something custom.
+}
+```
+
 ## Model configuration
 
-Use `Calendar` collection to add events. If you don't want to publish it all, create an issue to request the removal.
+*both:* Use `Calendar` collection to add events. If you don't want to publish it all, create an issue to request the removal.
 
 ## Third party projects included
 
